@@ -1,4 +1,4 @@
-package aop;
+package lab.aop;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

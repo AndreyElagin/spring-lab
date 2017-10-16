@@ -1,4 +1,4 @@
-package aop;
+package lab.aop;
 
 import lab.model.Customer;
 import lab.model.Squishee;

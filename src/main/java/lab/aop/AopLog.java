@@ -1,4 +1,4 @@
-package aop;
+package lab.aop;
 
 public class AopLog {
 

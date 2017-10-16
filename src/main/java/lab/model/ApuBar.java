@@ -1,6 +1,6 @@
 package lab.model;
 
-import aop.AopLog;
+import lab.aop.AopLog;
 
 public class ApuBar implements Bar {
 

@@ -36,6 +36,6 @@
         <property name="broke" value="false" />
     </bean>
 
-    <bean id="politeness" class="aop.Politeness" />
+    <bean id="politeness" class="lab.aop.Politeness" />
 
 </beans>

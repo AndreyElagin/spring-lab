@@ -6,6 +6,9 @@ import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -33,7 +36,13 @@ public class HelloWorldTest {
     private UsualPerson getExpectedPerson() {
         UsualPerson person = new UsualPerson();
         person.setAge(35);
+        person.setHeight(1.55f);
         person.setName("John Smith");
+        person.setProgrammer(true);
+        List<String> contacts = new ArrayList<>();
+        contacts.add("asd@asd.ru");
+        contacts.add("+7-234-456-67-89");
+        person.setContacts(contacts);
 
         Country country = new Country();
         country.setId(1);
