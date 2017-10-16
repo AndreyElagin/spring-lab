@@ -26,8 +26,7 @@ public class AopAspectJExceptionTest {
 
     @Before
     public void setUp() throws Exception {
-        
-//        customer.setBroke(true);
+        customer.setBroke(true);
     }
 
     @Test(expected=CustomerBrokenException.class)
