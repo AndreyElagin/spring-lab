@@ -7,20 +7,25 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
     <context:annotation-config/>
+    <context:component-scan base-package="lab.model, lab.dao" />
     <aop:aspectj-autoproxy/>
 
     <jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:db-schema.sql"/>
     </jdbc:embedded-database>
 
-    <!--
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <property name="url" value="jdbc:hsqldb:mem:test"/>
-        <property name="username" value="sa"/>
-        <property name="password" value=""/>
+    <bean id="lcemf"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="loadTimeWeaver">
+            <bean
+                    class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+        </property>
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="persistenceUnitName" value="springframework.lab.orm.jpa" />
+        <property name="persistenceProviderClass" value="org.hibernate.ejb.HibernatePersistence"/>
     </bean>
- -->
+
+    <bean id="countryDao" class="lab.dao.jpa.CountryJpaDaoImpl" />
 
     <bean id="countryDao" class="lab.dao.CountryDao">
         <property name="dataSource" ref="dataSource"/>
